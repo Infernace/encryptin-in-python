@@ -1,13 +1,24 @@
-# encrypting
+Key Generation:
 
-Key Generation: The generate_key function generates a key and saves it to a file named secret.key. This key is required for both encryption and decryption.
+The generate_key function generates a new key using Fernet.generate_key() and saves it to a file named secret.key. You need to run this function only once to generate and save the key.
+Load Key:
 
-Load Key: The load_key function loads the key from the secret.key file.
+The load_key function reads the key from the secret.key file and returns it.
+Encrypt Message:
 
-Encrypt Message: The encrypt_message function takes a plaintext message, loads the encryption key, and returns the encrypted message.
+The encrypt_message function takes a plaintext message, loads the key, and encrypts the message using Fernet.encrypt(). The encrypted message is returned.
+How to Use:
+Generate Key:
 
-Decrypt Message: The decrypt_message function takes an encrypted message, loads the decryption key, and returns the decrypted plaintext message.
+Run the script to generate a key and save it to a file. You only need to do this step once. You can comment out or remove the generate_key() call after the key is generated.
+Encrypt Message:
+
+The script encrypts a sample message and prints the encrypted message.
+
+You can modify the message variable to any message you want to encrypt.
 
 
-Run the script to generate a key and save it to a file.
-The script will encrypt a sample message and print the encrypted and decrypted messages.
+
+
+
+
