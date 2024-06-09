@@ -1,0 +1,35 @@
+#encryption
+
+
+
+
+from cryptography.fernet import Fernet
+
+# Function to generate a key and save it to a file
+def generate_key():
+    key = Fernet.generate_key()
+    with open("secret.key", "wb") as key_file:
+        key_file.write(key)
+
+# Function to load the key from a file
+def load_key():
+    return open("secret.key", "rb").read()
+
+# Function to encrypt a message
+def encrypt_message(message):
+    key = load_key()
+    fernet = Fernet(key)
+    encrypted_message = fernet.encrypt(message.encode())
+    return encrypted_message
+
+if __name__ == "__main__":
+    # Generate and save the key (run this only once)
+    generate_key()
+
+    # Original message
+    message = "This is a secret message"
+    print(f"Original message: {message}")
+
+    # Encrypt the message
+    encrypted_message = encrypt_message(message)
+    print(f"Encrypted message: {encrypted_message}")
